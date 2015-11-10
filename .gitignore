@@ -1,5 +1,8 @@
 ### node etc ###
 
+# Server file
+server/server-config.js
+
 # Logs
 logs
 *.log

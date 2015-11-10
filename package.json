@@ -5,6 +5,8 @@
   "main": "app.js",
   "author": "Tina Lai",
   "dependencies": {
-    "firebase": "^2.3.1"
+    "express": "^4.13.3",
+    "firebase": "^2.3.1",
+    "mongoose": "^4.2.5"
   }
 }

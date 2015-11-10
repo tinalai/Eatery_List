@@ -11,10 +11,10 @@
     <header>
       <h1>The Eatery List</h1>
       <form class="form" ng-submit="addToeats(); newToeat = ''; username = '';">
-        <input type="text" id="input-toeat" placeholder="Add new place to eat" ng-model="newToeat" />
-        <input type="text" id="input-user" placeholder="Suggested by?" ng-model="username">
+        <input type="text" id="input-toeat" placeholder="Add new place to eat" ng-model="newToeat" required>
+        <input type="text" id="input-user" placeholder="Suggested by?" ng-model="username" required>
         <button name="button">Add Eatery</button>
-      </form>  
+      </form>
     </header>
 
     <br>
@@ -22,8 +22,8 @@
 
       <div class="toeat" ng-repeat="toeat in toeats" >
         <button class="delete" ng-click="toeats.$remove(toeat)">&times;</button>
-        &nbsp<strong> {{toeat.text}}: </strong> &nbsp  suggested by &nbsp <i><strong>{{toeat.user }}</i></strong> &nbsp
-        <input class="edit-box" ng-model="toeat.text" ng-change="toeats.$save(toeat)"/>
+        &nbsp<strong> {{toeat.text}}: </strong> &nbsp suggested by &nbsp <i><strong>{{toeat.user }}</i></strong> &nbsp
+        <input class="edit-box" ng-model="toeat.text" ng-change="toeats.$save(toeat)">
 
 
       </div>
