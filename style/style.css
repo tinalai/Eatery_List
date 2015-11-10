@@ -1,0 +1,25 @@
+.container {
+  margin: 0, auto;
+  width: 480px;
+  padding: 20px;
+}
+
+body {
+  font-family: serif;
+  background-color: #03D1F7;
+  position:absolute;
+
+}
+
+h1 {
+  background-color: #FCDA00;
+  text-align: center;
+}
+
+.form {
+  padding-left: 50px;
+}
+
+.edit-box {
+float: right;
+}

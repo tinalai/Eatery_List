@@ -1,0 +1,10 @@
+{
+  "name": "the-eatery-list",
+  "version": "0.0.0",
+  "description": "simple group to-eat list application",
+  "main": "app.js",
+  "author": "Tina Lai",
+  "dependencies": {
+    "firebase": "^2.3.1"
+  }
+}
