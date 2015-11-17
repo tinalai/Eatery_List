@@ -1,7 +1,21 @@
 var app = require('./server/server-config.js');
+var express = require('express');
+var morgan = require('morgan');
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 var Schema = mongoose.Schema;
 var port = process.env.PORT || 8080;
+// var app = express();
+
+// mongoose.connect('mongodb://tina:akatina@ds031892.mongolab.com:31892/eaterydb');
+
+app.use(express.static(__dirname + '/public'));
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({'extended' : 'true'}));
+app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
+app.use(methodOverride());
 
 var toeatSchema = new Schema({
   text: String,
@@ -10,6 +24,8 @@ var toeatSchema = new Schema({
 });
 
 var ToEat = mongoose.model('ToEat', toeatSchema);
+
+// Routes ===============
 // api
 // get all toeats
 app.get('/api/toeats', function(req, res) {
@@ -66,7 +82,8 @@ app.delete('/api/toeats/:toeat_id', function(req, res){
 
 
 app.get('*', function(req, res) {
-  res.sendfile('/index.html'); // load the single page application
+  res.sendfile('./public/index.html'); // load the single page application
+  res.end();
 })
 
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <title>The Eatery List</title>
+  <link rel="stylesheet" href="../style/style.css">
+</head>
+<body ng-controller="MainController">
+  <div class="container">
+
+<header>
+    <h1>The Eatery List</h1>
+    <div id="count">{{ toeats.length }} places left to try</div>
+    <br>
+    <form class="form" ng-submit="addToeats(); newToeat = ''; username = '';">
+      <input type="text" id="input-toeat" placeholder="Add new place to eat" ng-model="newToeat" />
+      <input type="text" id="input-user" placeholder="Suggested by?" ng-model="username">
+      <button name="button">Add Eatery</button>
+    </form>
+
+</header>
+
+    <br>
+    <ul>
+
+      <div class="toeat" ng-repeat="toeat in toeats" >
+        <button class="delete" ng-click="toeats.$remove(toeat)">&times;</button>
+        &nbsp<strong> {{ toeat.text }}: </strong> &nbsp suggested by &nbsp <i><strong>{{ toeat.user }}</i></strong> &nbsp
+        <input class="edit-box" ng-model="toeat.text" ng-change="toeats.$save(toeat)"/>
+
+
+      </div>
+
+    </ul>
+
+
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <script src="../app.js">  </script>
+</body>
+</html>
